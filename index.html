@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ODS 8 - Trabajo Decente y Crecimiento Económico</title>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f9fc;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* Marquesina animada */
+        .marquee-container {
+            background-color: #2c7d4d;
+            color: white;
+            padding: 10px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .marquee {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 20s linear infinite;
+        }
+        
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+        
+        /* Encabezado */
+        header {
+            background: linear-gradient(135deg, #2c7d4d, #5D8A66);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        
+        header p {
+            font-size: 1.2em;
+            max-width: 800px;
+            margin: 15px auto 0;
+        }
+        
+        /* Navegación */
+        nav {
+            background-color: #333;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+        
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+        
+        nav li {
+            margin: 0;
+        }
+        
+        nav a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 16px 20px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        nav a:hover {
+            background-color: #5D8A66;
+            color: white;
+        }
+        
+        /* Contenido principal */
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            background-color: white;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        h2 {
+            color: #2c7d4d;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        
+        /* Imágenes */
+        .img-container {
+            text-align: center;
+            margin: 25px 0;
+        }
+        
+        .img-container img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        /* Carrusel */
+        .carousel {
+            position: relative;
+            max-width: 900px;
+            margin: 30px auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+        }
+        
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        
+        .carousel-item {
+            min-width: 100%;
+            position: relative;
+        }
+        
+        .carousel-item img {
+            width: 100%;
+            display: block;
+            height: 450px;
+            object-fit: cover;
+        }
+        
+        .carousel-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.6);
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .carousel-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .carousel-control:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+        
+        .carousel-control.prev {
+            left: 15px;
+        }
+        
+        .carousel-control.next {
+            right: 15px;
+        }
+        
+        .carousel-indicators {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 10;
+        }
+        
+        .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .indicator.active {
+            background-color: white;
+            transform: scale(1.2);
+        }
+        
+        /* Redes sociales */
+        .social-section {
+            background-color: #f0f7f4;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #2c7d4d;
+            color: white;
+            font-size: 24px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .social-link:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+            background-color: #235f3a;
+        }
+        
+        /* Pie de página */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 25px 20px;
+            margin-top: 50px;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 15px 0;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: #5D8A66;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav a {
+                padding: 12px 20px;
+            }
+            
+            .carousel-item img {
+                height: 300px;
+            }
+            
+            header h1 {
+                font-size: 2em;
+            }
+            
+            header p {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Marquesina -->
+    <div class="marquee-container">
+        <div class="marquee">
+            🌍 ODS 8 en acción: Trabajo decente para todos | Crecimiento económico sostenible | Reducción del desempleo juvenil | Igualdad salarial | Protección laboral 🌍
+        </div>
+    </div>
+
+    <header>
+        <h1>Objetivo de Desarrollo Sostenible 8</h1>
+        <p>Promover el crecimiento económico sostenido, inclusivo y sostenible, el empleo pleno y productivo y el trabajo decente para todos</p>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#que-es">¿Qué es?</a></li>
+            <li><a href="#importancia">Importancia</a></li>
+            <li><a href="#metas">Metas</a></li>
+            <li><a href="#carrusel">Galería</a></li>
+            <li><a href="#acciones">Acciones</a></li>
+            <li><a href="#recursos">Recursos</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <section id="que-es">
+            <h2>¿Qué es el ODS 8?</h2>
+            <p>El <strong>Objetivo de Desarrollo Sostenible 8 (ODS 8)</strong> es parte de la <a href="https://www.un.org/sustainabledevelopment/es/" target="_blank" style="color: #2c7d4d; font-weight: bold;">Agenda 2030 para el Desarrollo Sostenible</a> adoptada por todos los Estados Miembros de las Naciones Unidas en 2015. Este objetivo busca:</p>
+            <ul>
+                <li>Promover el crecimiento económico sostenido, inclusivo y sostenible</li>
+                <li>Lograr el empleo pleno y productivo</li>
+                <li>Garantizar trabajo decente para todas las personas</li>
+            </ul>
+            
+            <div class="img-container">
+                <img src="https://www.un.org/sustainabledevelopment/wp-content/uploads/2018/05/E_SDG-goals_icons-individual-rgb-08.png" alt="Logo ODS 8" style="max-width: 300px;">
+                <p><em>Icono oficial del ODS 8 - Naciones Unidas</em></p>
+            </div>
+        </section>
+        
+        <section id="importancia">
+            <h2>¿Por qué es importante?</h2>
+            <p>El trabajo decente y el crecimiento económico son fundamentales para:</p>
+            <div style="display: flex; flex-wrap: wrap; gap: 20px; margin: 20px 0;">
+                <div style="flex: 1; min-width: 250px; background: #f0f7f4; padding: 15px; border-radius: 8px;">
+                    <h3 style="color: #2c7d4d; margin-top: 0;">Reducción de la pobreza</h3>
+                    <p>El crecimiento económico inclusivo ayuda a sacar a las personas de la pobreza y mejorar su calidad de vida.</p>
+                </div>
+                <div style="flex: 1; min-width: 250px; background: #f0f7f4; padding: 15px; border-radius: 8px;">
+                    <h3 style="color: #2c7d4d; margin-top: 0;">Estabilidad social</h3>
+                    <p>El empleo decente contribuye a la cohesión social y reduce las desigualdades.</p>
+                </div>
+                <div style="flex: 1; min-width: 250px; background: #f0f7f4; padding: 15px; border-radius: 8px;">
+                    <h3 style="color: #2c7d4d; margin-top: 0;">Desarrollo sostenible</h3>
+                    <p>Una economía fuerte puede financiar la transición hacia modelos de producción y consumo sostenibles.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="metas">
+            <h2>Metas principales del ODS 8</h2>
+            <p>El ODS 8 incluye 12 metas específicas para lograr sus objetivos:</p>
+            <ol>
+                <li>Mantener el crecimiento económico per cápita de conformidad con las circunstancias nacionales</li>
+                <li>Lograr niveles más elevados de productividad económica mediante la diversificación y la innovación</li>
+                <li>Promover políticas orientadas al desarrollo que apoyen las actividades productivas y la creación de empleo decente</li>
+                <li>Mejorar progresivamente la eficiencia en el uso de los recursos mundiales</li>
+                <li>Reducir considerablemente la proporción de jóvenes que no están empleados y no cursan estudios</li>
+                <li>Proteger los derechos laborales y promover entornos de trabajo seguros para todos los trabajadores</li>
+            </ol>
+            <p>Puedes consultar todas las metas en el <a href="https://www.un.org/sustainabledevelopment/es/economic-growth/" target="_blank" style="color: #2c7d4d; font-weight: bold;">sitio oficial de la ONU</a>.</p>
+        </section>
+        
+        <!-- Carrusel de imágenes -->
+        <section id="carrusel">
+            <h2>Iniciativas globales para el trabajo decente</h2>
+            <div class="carousel">
+                <div class="carousel-inner" id="carousel-inner">
+                    <div class="carousel-item">
+                        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Empleo industrial">
+                        <div class="carousel-caption">Fábricas sostenibles crean empleos decentes</div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Trabajo en equipo">
+                        <div class="carousel-caption">El trabajo en equipo impulsa la productividad</div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Emprendimiento">
+                        <div class="carousel-caption">Apoyo al emprendimiento para crecimiento económico</div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Capacitación laboral">
+                        <div class="carousel-caption">Capacitación para empleos del futuro</div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Economía verde">
+                        <div class="carousel-caption">La economía verde genera nuevos empleos sostenibles</div>
+                    </div>
+                </div>
+                <button class="carousel-control prev" onclick="moveCarousel(-1)">❮</button>
+                <button class="carousel-control next" onclick="moveCarousel(1)">❯</button>
+                <div class="carousel-indicators" id="indicators">
+                    <div class="indicator active" onclick="goToSlide(0)"></div>
+                    <div class="indicator" onclick="goToSlide(1)"></div>
+                    <div class="indicator" onclick="goToSlide(2)"></div>
+                    <div class="indicator" onclick="goToSlide(3)"></div>
+                    <div class="indicator" onclick="goToSlide(4)"></div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="acciones">
+            <h2>¿Cómo puedes contribuir?</h2>
+            <p>Todos podemos ayudar a alcanzar el ODS 8:</p>
+            
+            <h3>Como individuo:</h3>
+            <ul>
+                <li>Apoya negocios que practiquen el comercio justo</li>
+                <li>Educate sobre derechos laborales y exígelos en tu trabajo</li>
+                <li>Considera emprendimientos sociales y sostenibles</li>
+            </ul>
+            
+            <h3>Como empresa:</h3>
+            <ul>
+                <li>Implementa políticas de contratación inclusivas</li>
+                <li>Ofrece condiciones laborales dignas y salarios justos</li>
+                <li>Invierte en capacitación y desarrollo de empleados</li>
+            </ul>
+            
+            <h3>Como comunidad:</h3>
+            <ul>
+                <li>Promueve programas de empleo juvenil</li>
+                <li>Apoya iniciativas de economía circular</li>
+                <li>Participa en campañas por derechos laborales</li>
+            </ul>
+        </section>
+        
+        <section id="recursos">
+            <h2>Recursos y enlaces útiles</h2>
+            <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+                <div style="flex: 1; min-width: 250px;">
+                    <h3>Organizaciones internacionales</h3>
+                    <ul>
+                        <li><a href="https://www.un.org/sustainabledevelopment/es/economic-growth/" target="_blank">ONU - ODS 8</a></li>
+                        <li><a href="https://www.ilo.org/global/lang--es/index.htm" target="_blank">Organización Internacional del Trabajo (OIT)</a></li>
+                        <li><a href="https://www.undp.org/content/undp/es/home/sustainable-development-goals/goal-8-decent-work-and-economic-growth.html" target="_blank">PNUD - Trabajo decente</a></li>
+                    </ul>
+                </div>
+                <div style="flex: 1; min-width: 250px;">
+                    <h3>Informes y datos</h3>
+                    <ul>
+                        <li><a href="https://www.un.org/development/desa/dpad/publication/world-economic-situation-and-prospects-june-2023-briefing-no-172/" target="_blank">Situación económica mundial</a></li>
+                        <li><a href="https://www.ilo.org/global/research/global-reports/lang--en/index.htm" target="_blank">Informes globales sobre empleo</a></li>
+                    </ul>
+                </div>
+                <div style="flex: 1; min-width: 250px;">
+                    <h3>Herramientas prácticas</h3>
+                    <ul>
+                        <li><a href="https://www.empowerwomen.org/es" target="_blank">Empoderamiento económico de mujeres</a></li>
+                        <li><a href="https://www.youthforesight.org/" target="_blank">Empleo juvenil</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Redes Sociales -->
+        <section class="social-section">
+            <h2>Conéctate con nosotros</h2>
+            <p>Sigue las últimas noticias sobre el ODS 8 y participa en la conversación</p>
+            
+            <div class="social-links">
+                <a href="https://facebook.com" class="social-link" target="_blank" title="Facebook">f</a>
+                <a href="https://twitter.com" class="social-link" target="_blank" title="Twitter">𝕏</a>
+                <a href="https://instagram.com" class="social-link" target="_blank" title="Instagram">📷</a>
+                <a href="https://linkedin.com" class="social-link" target="_blank" title="LinkedIn">in</a>
+                <a href="https://youtube.com" class="social-link" target="_blank" title="YouTube">▶</a>
+            </div>
+            
+            <p style="margin-top: 25px;">Suscríbete a nuestro boletín para recibir actualizaciones:</p>
+            <form style="max-width: 500px; margin: 0 auto; display: flex; gap: 10px;">
+                <input type="email" placeholder="Tu correo electrónico" style="flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+                <button type="submit" style="background-color: #2c7d4d; color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer;">Suscribirse</button>
+            </form>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="footer-links">
+            <a href="#que-es">Inicio</a>
+            <a href="mailto:contacto@ods8ejemplo.org">Contacto</a>
+            <a href="#">Política de privacidad</a>
+            <a href="#">Términos de uso</a>
+        </div>
+        <p>&copy; 2024 - Iniciativa ODS 8 | Trabajo Decente y Crecimiento Económico</p>
+        <p>Esta es una página de ejemplo creada con fines educativos.</p>
+    </footer>
+
+    <script>
+        // Carrusel interactivo
+        let currentIndex = 0;
+        const items = document.querySelectorAll('.carousel-item');
+        const totalItems = items.length;
+        const indicators = document.querySelectorAll('.indicator');
+        let carouselInterval;
+
+        function updateCarousel() {
+            const carouselInner = document.getElementById('carousel-inner');
+            carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
+            
+            // Actualizar indicadores
+            indicators.forEach((indicator, index) => {
+                if (index === currentIndex) {
+                    indicator.classList.add('active');
+                } else {
+                    indicator.classList.remove('active');
+                }
+            });
+        }
+
+        function moveCarousel(direction) {
+            currentIndex += direction;
+            if (currentIndex < 0) currentIndex = totalItems - 1;
+            if (currentIndex >= totalItems) currentIndex = 0;
+            updateCarousel();
+            resetInterval();
+        }
+
+        function goToSlide(index) {
+            currentIndex = index;
+            updateCarousel();
+            resetInterval();
+        }
+
+        function resetInterval() {
+            clearInterval(carouselInterval);
+            carouselInterval = setInterval(() => moveCarousel(1), 5000);
+        }
+
+        // Iniciar carrusel automático
+        carouselInterval = setInterval(() => moveCarousel(1), 5000);
+
+        // Pausar carrusel al hacer hover
+        const carousel = document.querySelector('.carousel');
+        carousel.addEventListener('mouseenter', () => {
+            clearInterval(carouselInterval);
+        });
+
+        carousel.addEventListener('mouseleave', () => {
+            resetInterval();
+        });
+    </script>
+</body>
+</html>
